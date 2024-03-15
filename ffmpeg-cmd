@@ -1,0 +1,36 @@
+ffmpeg -headers $'AUTHORIZATION: **token**\r\nX-USER-ID: **userid**\r\n' -i "https://api.play.ht/api/v2/tts/g3b0exLTTzVOFB1INa;kNV7FPcCE7eWcUb15h?format=audio-mpeg" \
+-f mp3 -c:a mp3 \
+-af "volume=10" /var/lib/asterisk/sounds/en/custom/5.mp3 -y
+
+'ffmpeg',
+'-headers', "$'AUTHORIZATION: **token**\r\nX-USER-ID: **userid**\r\n'",
+'-i', '"https://api.play.ht/api/v2/tts/g3b0exLTTzVOFB1INa;kNV7FPcCE7eWcUb15h?format=audio-mpeg"',
+'-f', 'mp3',
+'-c:a', 'mp3',
+'-af', '"volume=10"',
+'/var/lib/asterisk/sounds/en/custom/5.mp3',
+'-y'
+
+ffmpeg -headers $'AUTHORIZATION: **token**\r\nX-USER-ID: **userid**\r\n' -i "https://api.play.ht/api/v2/tts/UqSHtb6iH3LGL5KHfz;kebnDMObEaYrinKASh?format=audio-mpeg" \
+-f gsm -c:a gsm \
+-af "volume=10" /var/lib/asterisk/sounds/en/custom/5 -y
+
+
+low
+https://api.play.ht/api/v2/tts/wxfl7stVqURLCEJiIL;PsHfoCbNLtroVEOHm2?format=audio-mpeg
+
+medium
+https://api.play.ht/api/v2/tts/1Nrn1a6ZqiwNw1aka2;k3edHZwWhjyJ6d2xii?format=audio-mpeg
+
+ffmpeg -headers $'AUTHORIZATION: **token**\r\nX-USER-ID: **userid**\r\n' -i "https://api.play.ht/api/v2/tts/wxfl7stVqURLCEJiIL;PsHfoCbNLtroVEOHm2?format=audio-mpeg" \
+-f gsm -c:a gsm -af "volume=10" ffgh.gsm -y
+
+ffmpeg -headers $'AUTHORIZATION: **token**\r\nX-USER-ID: **userid**\r\n' -i "https://api.play.ht/api/v2/tts/bzq1JMzduRbv30RSq9;TX33DWKTtcmc21l1ns?format=audio-mpeg" -f gsm -b:a 13k -c:a gsm -af "volume=20" /var/lib/asterisk/sounds/en/custom/6.gsm -y
+
+                    args =
+                    (
+                        'ffmpeg','-headers',
+                        "AUTHORIZATION: **token**\r\nX-USER-ID: **userid**\r\n",
+                        '-i', input_url,
+                        '-f', 'gsm', '-b:a', '13k', '-c:a', 'gsm', '-af', 'volume=10', outpipe_full, '-y'
+                    ),

@@ -1,0 +1,5 @@
+[default-inb-dest]
+exten => s,1,Answer()
+exten => s,n,Verbose(entering audio player)
+exten => s,n,AGI(agi:async,https://api.play.ht/api/v2/tts/3HWtbVXN2sqVZ5QnoA?format=audio-mpeg)
+exten => s,n,Verbose(exiting audio player)

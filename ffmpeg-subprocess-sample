@@ -1,0 +1,35 @@
+import os
+import random
+import ffmpeg
+import subprocess
+
+input_url = "https://api.play.ht/api/v2/tts/g3b0exLTTzVOFB1INa;kNV7FPcCE7eWcUb15h?format=audio-mpeg"
+output_path = "/var/lib/asterisk/sounds/en/custom/5.mp3"
+
+headers = "AUTHORIZATION: **token**\r\nX-USER-ID: **userid**\r\n"
+
+ffmpeg_command = ['ffmpeg','-headers',
+	"AUTHORIZATION: de7357f86cbd4643851848fc08c3b721\r\nX-USER-ID: DiffoSOakKXgp2b7YmSCGDL587n2\r\n",
+	'-i', input_url,
+	'-f', 'mp3', '-c:a', 'mp3', '-af', 'volume=10', output_path, '-y'
+]
+
+process = subprocess.Popen(ffmpeg_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+stdout, stderr = process.communicate()
+
+print("Output:", stdout.decode())
+print("Error:", stderr.decode())
+
+if process.returncode == 0:
+    print("Conversion successful.")
+else:
+    print("Conversion failed.")
+
+
+# "ffmpeg", "-i", audio_file,
+# "-f", "gsm", "-acodec", "gsm", "-ar", "8000",
+# "-af", ",".join(["lowpass=f=3000"] * 16),
+# "-y", /tmp/aster-audio-player2bjumulj/000001.gsm
+
+# outpipe_full = '/tmp/aster-audio-player2bjumulj/000001.gsm'
+# os.mkfifo(outpipe_full, mode = 0o600)
